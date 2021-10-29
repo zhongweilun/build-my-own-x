@@ -19,10 +19,11 @@ Function.prototype.myCall = function (context, ...args) {
 };
 
 // 测试
-let fn = function () {
+let fn = function (name) {
+  this.name = name;
   console.log(this);
   console.log(this.name);
 };
 
-fn();
-fn.myCall({ name: "zwl" });
+fn("zwl");
+fn.myCall({}, 'zwl');
